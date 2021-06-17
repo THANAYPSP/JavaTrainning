@@ -1,32 +1,53 @@
 // ************************
 //This file code by Thana.Y
-//*** THIS BAD SOLUTION ***
-//*** Good solution please see:NewMyRange ***
-//Bad because Not validate input and can't enter a value greater than ten or minus ten
+//Edit for Work1MyRange
 
-import java.util.Scanner;
 
-public class Work1MyRange {
-    public static void main(String[] args) {
-        String input;
-        Scanner scanInput = new Scanner(System.in);
+public class Work2MyRange {
 
-        System.out.println("Enter Range : ");
-        input = scanInput.nextLine();
-        char[] arrayInput = input.toCharArray();
+    private final String input;
 
-        int start =Integer.parseInt(String.valueOf(arrayInput[1]));
-        int end =Integer.parseInt(String.valueOf(arrayInput[3]));
+    public Work2MyRange(String input) {
+        this.input = input;
+    }
 
-        if(new Character('(').equals(arrayInput[0])){
-            start= start+1;
-        }if(new Character(')').equals(arrayInput[4])){
-            end= end-1;
+    public boolean checkStartWithInclude() {
+        return input.startsWith("[");
+    }
+
+    public boolean checkEndWithInclude() {
+        return input.endsWith("]");
+    }
+
+    public int getFirstNumber() {
+        int start = Integer.parseInt(String.valueOf(input.charAt(1)));
+        if (checkStartWithInclude()) {
+            return start;
+        } else {
+            return start + 1;
         }
 
-        for(int i= start; i <end+1 ; i++){
-            System.out.println(i);
+    }
+
+    public int getLastNumber() {
+        int end = Integer.parseInt(String.valueOf(input.charAt(3)));
+        if (checkStartWithInclude()) {
+            return end + 1;
+        } else {
+            return end;
         }
+
+    }
+
+    public String getResult() {
+        String result = "";
+        for (int i = getFirstNumber(); i < getLastNumber(); i++) {
+            result = result + i;
+            if(i < getLastNumber()-1){
+                result = result + " , " ;
+            }
+        }
+        return result;
     }
 
 }
