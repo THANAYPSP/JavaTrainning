@@ -9,8 +9,18 @@ public class EmployeeController {
 
 
     @GetMapping("/employee/{id}")
-    public EmployeeResponese getEmployeeByID(@PathVariable int id) {
-        return new EmployeeResponese(id, "Thana", "Na");
+    public EmployeeResponese getEmployeeByID(@PathVariable String id) {
+        int _id = 0;
+        try {
+            _id = Integer.parseInt(id);
+        }
+        catch(Exception e){
+            System.out.println("Failed Please Check ID");
+            return new EmployeeResponese(000,"-","-");
+
+        }
+        return new EmployeeResponese(_id,"Thana","Yok");
+
     }
 
 }
