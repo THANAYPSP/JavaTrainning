@@ -52,4 +52,29 @@ public class EmployeeControllerTest {
         assertEquals("Thana", response.getFname());
         assertEquals("Yok", response.getLname());
     }
+
+    @Test
+    public void pathVariableCatchTest() {
+        EmployeeResponese expected = new EmployeeResponese(000, "-", "-");
+        EmployeeResponese response
+                = restTemplate.getForObject("/employee/catch", EmployeeResponese.class);
+        assertEquals(expected,response);
+    }
+
+    @Test
+    public void requestParameterCatchTest() {
+        EmployeeResponese expected = new EmployeeResponese(000, "-", "-");
+        EmployeeResponese response
+                = restTemplate.getForObject("/employee?id=catch", EmployeeResponese.class);
+        assertEquals(expected,response);
+    }
+
+    @Test
+    public void demoTest(){
+        Demo demo = new Demo();
+        demo.setName("Thana");
+        assertEquals("Thana",demo.getName());
+
+
+    }
 }

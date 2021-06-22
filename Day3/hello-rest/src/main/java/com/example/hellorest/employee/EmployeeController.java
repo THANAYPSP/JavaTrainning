@@ -35,7 +35,8 @@ public class EmployeeController {
         try {
             _id = Integer.parseInt(id);
         }catch (NumberFormatException e) {
-            // ERROR => TODO ?
+            System.out.println("Failed Please Check ID");
+            return new EmployeeResponese(000,"-","-");
         }
         return new EmployeeResponese(_id, "Thana2", "Yok2");
     }
