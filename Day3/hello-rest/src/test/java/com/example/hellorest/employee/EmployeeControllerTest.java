@@ -35,11 +35,21 @@ public class EmployeeControllerTest {
     }
 
     @Test
-    public void callApiWithREquestParameter() {
+    public void callApiWithRequestParameter() {
         EmployeeResponese response
                 = restTemplate.getForObject("/employee?id=999", EmployeeResponese.class);
         assertEquals(999, response.getId());
         assertEquals("Thana2", response.getFname());
         assertEquals("Yok2", response.getLname());
+    }
+
+    @Test
+    public void postApiTest() {
+        EmployeeRequest request = new EmployeeRequest("Thana", "Yok");
+        EmployeeResponese response
+                = restTemplate.postForObject("/employee", request, EmployeeResponese.class);
+        assertEquals(999, response.getId());
+        assertEquals("Thana", response.getFname());
+        assertEquals("Yok", response.getLname());
     }
 }
