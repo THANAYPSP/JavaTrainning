@@ -29,7 +29,7 @@ public class EmployeeControllerTest {
         EmployeeResponese response
                 = restTemplate.getForObject("/employee/123", EmployeeResponese.class);
         assertEquals(123, response.getId());
-        assertEquals("Thana", response.getFname());
+        assertEquals("Thana5", response.getFname());
         assertEquals("Yok", response.getLname());
         assertEquals(expected,response);
     }
