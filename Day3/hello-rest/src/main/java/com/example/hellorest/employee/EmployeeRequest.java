@@ -1,6 +1,9 @@
 package com.example.hellorest.employee;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class EmployeeRequest {
+    @JsonProperty("first_name")
     private String fname;
     private String lname;
 
