@@ -7,7 +7,7 @@ public class Geo{
     public Geo() {
     }
 
-    public Geo(double  lng, double  lat) {
+    public Geo(double lat, double lng) {
         this.lng = lng;
         this.lat = lat;
     }

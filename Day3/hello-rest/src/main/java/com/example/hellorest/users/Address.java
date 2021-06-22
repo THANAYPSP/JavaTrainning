@@ -7,7 +7,7 @@ public class Address{
     private String city;
     private String street;
 
-    public Address(String zipcode, Geo geo, String suite, String city, String street) {
+    public Address(String street, String suite, String city, String zipcode, Geo geo) {
         this.zipcode = zipcode;
         this.geo = geo;
         this.suite = suite;

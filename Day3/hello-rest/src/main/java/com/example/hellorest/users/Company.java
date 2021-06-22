@@ -5,7 +5,7 @@ public class Company{
     private String catchPhrase;
     private String name;
 
-    public Company(String bs, String catchPhrase, String name) {
+    public Company(String name, String catchPhrase, String bs) {
         this.bs = bs;
         this.catchPhrase = catchPhrase;
         this.name = name;
