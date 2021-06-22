@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Random;
+
 @RestController
 public class EmployeeController {
 
@@ -19,7 +21,10 @@ public class EmployeeController {
             return new EmployeeResponese(000,"-","-");
 
         }
-        return new EmployeeResponese(_id,"Thana","Yok");
+        //Workshop
+        Random random = new Random();
+        int number = random.nextInt(10);
+        return new EmployeeResponese(_id,"Thana"+ number,"Yok");
 
     }
     // employee?id=?
