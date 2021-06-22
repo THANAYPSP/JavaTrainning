@@ -7,6 +7,17 @@ public class Address{
     private String city;
     private String street;
 
+    public Address(String zipcode, Geo geo, String suite, String city, String street) {
+        this.zipcode = zipcode;
+        this.geo = geo;
+        this.suite = suite;
+        this.city = city;
+        this.street = street;
+    }
+
+    public Address() {
+    }
+
     public void setZipcode(String zipcode){
         this.zipcode = zipcode;
     }
@@ -46,4 +57,5 @@ public class Address{
     public String getStreet(){
         return street;
     }
+
 }

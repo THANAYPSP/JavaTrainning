@@ -5,6 +5,15 @@ public class Company{
     private String catchPhrase;
     private String name;
 
+    public Company(String bs, String catchPhrase, String name) {
+        this.bs = bs;
+        this.catchPhrase = catchPhrase;
+        this.name = name;
+    }
+
+    public Company() {
+    }
+
     public void setBs(String bs){
         this.bs = bs;
     }
@@ -28,4 +37,6 @@ public class Company{
     public String getName(){
         return name;
     }
+
 }
+

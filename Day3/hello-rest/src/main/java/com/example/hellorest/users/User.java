@@ -10,6 +10,20 @@ public class User{
     private String email;
     private String username;
 
+    public User() {
+    }
+
+    public User(String website, Address address, String phone, String name, Company company, int id, String email, String username) {
+        this.website = website;
+        this.address = address;
+        this.phone = phone;
+        this.name = name;
+        this.company = company;
+        this.id = id;
+        this.email = email;
+        this.username = username;
+    }
+
     public void setWebsite(String website){
         this.website = website;
     }
@@ -73,4 +87,6 @@ public class User{
     public String getUsername(){
         return username;
     }
+
+
 }

@@ -1,22 +1,33 @@
 package com.example.hellorest.users;
 
 public class Geo{
-    private String lng;
-    private String lat;
+    private double  lng;
+    private double  lat;
 
-    public void setLng(String lng){
+    public Geo() {
+    }
+
+    public Geo(double  lng, double  lat) {
         this.lng = lng;
-    }
-
-    public String getLng(){
-        return lng;
-    }
-
-    public void setLat(String lat){
         this.lat = lat;
     }
 
-    public String getLat(){
+    public void setLng(double  lng){
+        this.lng = lng;
+    }
+
+    public double  getLng(){
+        return lng;
+    }
+
+    public void setLat(double  lat){
+        this.lat = lat;
+    }
+
+    public double  getLat(){
         return lat;
     }
+
+
+
 }
