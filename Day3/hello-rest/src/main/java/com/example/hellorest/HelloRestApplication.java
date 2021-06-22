@@ -1,12 +1,13 @@
 package com.example.hellorest;
 
 import com.example.hellorest.employee.Demo;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
 @SpringBootApplication
-public class HelloRestApplication {
+public class HelloRestApplication implements CommandLineRunner {
 
     public static void main(String[] args) {
         ConfigurableApplicationContext context
@@ -27,6 +28,11 @@ public class HelloRestApplication {
         //Demo1 => From Demo1
         //Demo2 => From Demo1
         //ข้อเสียของการ initial 1 Instant
+    }
+    @Override
+    public void run(String... args) throws Exception {
+        System.out.println("Start...");
+        System.out.println("Stop...");
     }
 
 }
