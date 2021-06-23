@@ -15,6 +15,9 @@ public class EmployeeResponese {
         return fname;
     }
 
+    public EmployeeResponese() {
+    }
+
     public String getLname() {
         return lname;
     }
