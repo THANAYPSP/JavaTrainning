@@ -12,6 +12,9 @@ public class EmployeeController {
     @Autowired
     private MyRandom random ;
 
+    @Autowired
+    private EmployeeRepository repository;
+
     @GetMapping("/employee/{id}")
     public EmployeeResponese getEmployeeByID(@PathVariable String id) {
         int _id = 0;
@@ -23,8 +26,11 @@ public class EmployeeController {
             return new EmployeeResponese(000,"-","-");
         }
         //Workshop
-        int number = random.nextInt(10);
-        return new EmployeeResponese(_id,"Thana"+ number,"Yok");
+//        int number = random.nextInt(10);
+//        return new EmployeeResponese(_id,"Thana"+ number,"Yok");
+        repository.save(new Employee("Thana", "Yok"));
+        Employee employee = repository.getById(1);
+        return new EmployeeResponese(_id, employee.getFirstName(), employee.getLastName());
 
     }
     // employee?id=?
