@@ -31,7 +31,7 @@ public class EmployeeControllerMockTest {
         when(random.nextInt(10)).thenReturn(5);
 
         Employee mock = new Employee(123, "Mock fname","Mock Lname");
-        when(repository.findById(123)).thenReturn(Optional.empty());
+        when(repository.findById(123)).thenReturn(Optional.of(mock));
         
         //Testing
         EmployeeResponese expected = new EmployeeResponese(123, "Mock fname5", "Mock Lname");
