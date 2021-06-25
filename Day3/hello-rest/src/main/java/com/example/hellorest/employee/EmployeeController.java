@@ -10,11 +10,9 @@ import java.util.Random;
 @RestController
 public class EmployeeController {
 
-    @Autowired
-    private MyRandom random;
 
     @Autowired
-    private EmployeeRepository repository;
+    private  EmployeeService employeeService;
 
     @GetMapping("/employee/{id}")
     public EmployeeResponese getEmployeeByID(@PathVariable String id) {
@@ -25,21 +23,14 @@ public class EmployeeController {
             System.out.println("Failed Please Check ID");
             return new EmployeeResponese(000, "-", "-");
         }
-        //Workshop
-         int number = random.nextInt(10);
-        //  return new EmployeeResponese(_id,"Thana"+ number,"Yok");
-        // Call repository
-        Optional<Employee> result = repository.findById(_id);
-        if (result.isPresent()) {
-            Employee employee = result.get();
-            return new EmployeeResponese(
-                    employee.getId(),
-                    employee.getFirstName() + number,
-                    employee.getLastName());
-        }
-        // Not found ?
-        return new EmployeeResponese();
 
+        EmployeeResponese employeeResponese = employeeService.process(_id);
+        return  employeeResponese;
+
+
+    }
+
+    private void process(int id) {
     }
 
     // employee?id=?
