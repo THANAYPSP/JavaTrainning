@@ -24,6 +24,7 @@ public class EmployeeController {
             return new EmployeeResponese(000, "-", "-");
         }
 
+        //Delegate to service
         EmployeeResponese employeeResponese = employeeService.process(_id);
         return  employeeResponese;
 

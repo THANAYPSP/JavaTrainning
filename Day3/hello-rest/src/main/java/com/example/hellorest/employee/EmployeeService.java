@@ -5,15 +5,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
+import java.util.Random;
 
 @Service
 public class EmployeeService {
 
     @Autowired
-    private MyRandom random;
+    private Random random;
+
 
     @Autowired
     private EmployeeRepository repository;
+
+    public void setRandom(Random random) {
+        this.random=random;
+    }
 
     public EmployeeResponese process(int id) {
         //Workshop
@@ -30,5 +36,10 @@ public class EmployeeService {
         }
         // Not found ?
         return new EmployeeResponese();
+    }
+
+
+    public void setRepository(EmployeeRepository repository) {
+        this.repository = repository;
     }
 }
