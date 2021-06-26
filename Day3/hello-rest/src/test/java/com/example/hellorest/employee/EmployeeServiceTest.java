@@ -42,4 +42,21 @@ public class EmployeeServiceTest {
 
     }
 
+    @Test
+    public void  foundEmployeeId100NotFound(){
+        when(random.nextInt(10)).thenReturn(10);
+
+
+        when(repository.findById(100)).thenReturn(Optional.empty());
+
+        EmployeeService service = new EmployeeService();
+        service.setRandom(random);
+        service.setRepository(repository);
+        EmployeeResponese result = service.process(100);
+        assertEquals(0,result.getId());
+        assertNull(result.getFname());
+        assertNull(result.getLname());
+
+    }
+
 }
