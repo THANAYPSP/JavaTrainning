@@ -1,5 +1,7 @@
 package com.example.hellorest.employee;
 
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.parallel.Execution;
@@ -25,26 +27,31 @@ public class EmployeeServiceTest {
     @Mock
     private EmployeeRepository repository;
 
-    @Test
-    public void  foundEmployeeId1(){
+    @BeforeEach
+    public void setupMock() {
         when(random.nextInt(10)).thenReturn(10);
+    }
 
-        Employee mock = new Employee(1, "Service Fname","Service Lname");
+
+    @Test
+    public void foundEmployeeId1() {
+
+
+        Employee mock = new Employee(1, "Service Fname", "Service Lname");
         when(repository.findById(1)).thenReturn(Optional.of(mock));
 
         EmployeeService service = new EmployeeService();
         service.setRandom(random);
         service.setRepository(repository);
         EmployeeResponese result = service.process(1);
-        assertEquals(1,result.getId());
-        assertEquals("Service Fname10",result.getFname());
-        assertEquals("Service Lname",result.getLname());
+        assertEquals(1, result.getId());
+        assertEquals("Service Fname10", result.getFname());
+        assertEquals("Service Lname", result.getLname());
 
     }
 
     @Test
-    public void  foundEmployeeId100NotFound(){
-        when(random.nextInt(10)).thenReturn(10);
+    public void foundEmployeeId100NotFound() {
 
 
         when(repository.findById(100)).thenReturn(Optional.empty());
@@ -53,7 +60,7 @@ public class EmployeeServiceTest {
         service.setRandom(random);
         service.setRepository(repository);
         EmployeeResponese result = service.process(100);
-        assertEquals(0,result.getId());
+        assertEquals(0, result.getId());
         assertNull(result.getFname());
         assertNull(result.getLname());
 
